@@ -9,56 +9,56 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :index
+    erb :'/users/index'
   end
 
-  get "/signup" do
-    erb :signup
+  get "/users/signup" do
+    erb :'/users/signup'
   end
 
-  post "/signup" do
+  post "/users/signup" do
     if params[:username] == "" || params[:password] == ""
-      redirect '/failure'
+      redirect '/users/failure'
     else
       User.create(username: params[:username], password: params[:password])
-      redirect '/login'
+      redirect '/users/login'
     end
 
   end
 
-  get '/account' do
+  get '/users/account' do
     @user = User.find(session[:user_id])
-    erb :account
+    erb :'/users/account'
   end
 
 
-  get "/login" do
-    erb :login
+  get "/users/login" do
+    erb :'users/login'
   end
 
-  post "/login" do
+  post "/users/login" do
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect to "/account"
+      redirect to "/users/account"
     else
-      redirect to "/failure"
+      redirect to "/users/failure"
     end
   end
 
-  get "/success" do
+  get "/users/success" do
     if logged_in?
-      erb :success
+      erb :'/users/success'
     else
-      redirect "/login"
+      redirect "/users/login"
     end
   end
 
-  get "/failure" do
-    erb :failure
+  get "/users/failure" do
+    erb :'/users/failure'
   end
 
-  get "/logout" do
+  get "/users/logout" do
     session.clear
     redirect "/"
   end
