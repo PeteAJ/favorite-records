@@ -10,12 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161002171933) do
+ActiveRecord::Schema.define(version: 20161002180132) do
+
+  create_table "records", force: :cascade do |t|
+    t.string "artist"
+    t.string "title"
+    t.string "label"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
   end
-
 
 end
