@@ -1,0 +1,6 @@
+
+<% @records.each do |record|%>
+  <a href="/records/<%= record.id %>">Name: <%= record.artist %></a>
+  Title: <%= record.title %>
+  Label: <%= record.label %>
+<% end %>
