@@ -1,9 +1,15 @@
 Artist: <%= @record.artist %>
 Title: <%= @record.title %>
 Label <%= @record.label %>
+
 <br></br>
 <form method="post" action="/records/<%=@record.id%>/delete">
-    <input id="hidden" type="hidden" name="_method" value="delete">
+<input id="hidden" type="hidden" name="_method" value="delete">
 
-  <input type="submit" value="delete">
+<input type="submit" value="delete">
+</form>
+<form method="post" action="/records/<%=@record.id%>/edit">
+<input id="hidden" type="hidden" name="_method" value="edit">
+
+<input type="submit" value="edit">
 </form>
