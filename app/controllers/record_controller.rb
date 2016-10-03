@@ -1,29 +1,29 @@
-require './config/environment'
-
+require "./config/environment"
+require "./app/models/record"
 
 class RecordsController < ApplicationController
     # register Sinatra::ActiveRecordExtension
   set :views, Proc.new { File.join(root, "../views/") }
 
-
+ 
 
   get '/records/new' do #loads new form
-    erb :new
+    erb :'/records/new'
   end
 
   get '/records' do #loads index page
-    @records = record.all
-    erb :index
+    @records = Record.all
+    erb :'/records/index'
   end
 
   get '/records/:id' do  #loads show page
     @record = record.find_by_id(params[:id])
-    erb :show
+    erb :'/records/show'
   end
 
   get '/records/:id/edit' do #loads edit form
     @record = record.find_by_id(params[:id])
-    erb :edit
+    erb :'/records/edit'
   end
 
   patch '/records/:id' do  #updates a record
