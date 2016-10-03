@@ -102,6 +102,7 @@ DEPENDENCIES
   bcrypt
   capybara
   pry
+  rack (~> 1.6.4)
   rack-test
   rack_session_access
   rake

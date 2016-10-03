@@ -9,6 +9,7 @@ gem 'require_all'
 gem 'capybara'
 gem "rack_session_access"
 gem 'rack-test'
+gem 'rack', '~> 1.6.4'
 
 group :development do
   gem "pry"

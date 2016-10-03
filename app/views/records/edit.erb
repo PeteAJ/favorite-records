@@ -1,4 +1,4 @@
-<form method="post" action="/records/<%=@record.id%>">
+<form method="post" action="/records/:id">
   <input id="hidden" type="hidden" name="_method" value="patch">
   Artist<input id="record_artist" type="text" value="<%=@record.artist%>" name="artist">
   Title<input id="record_title" type="text" value="<%=@record.title%>" name="title">

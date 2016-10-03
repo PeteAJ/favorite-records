@@ -12,7 +12,7 @@ class RecordsController < ApplicationController
   end
 
   get '/records' do #loads index page
-    @records = Record.all
+    @record = Record.all
     erb :'/records/index'
   end
 
