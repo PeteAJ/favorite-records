@@ -36,11 +36,11 @@ class RecordsController < ApplicationController
   end
 
   post '/records' do  #creates a record
-    @record = Record.create(params)
+    @record = Record.create(artist: params[:artist], title: params[:title], label: params[:label])
     redirect to "/records/#{@record.id}"
   end
 
-  delete '/records/:id/delete' do #delete action
+  post '/records/:id/delete' do #delete action
   @record = Record.find_by_id(params[:id])
   @record.delete
   redirect to '/records'
