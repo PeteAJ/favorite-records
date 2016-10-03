@@ -17,17 +17,17 @@ class RecordsController < ApplicationController
   end
 
   get '/records/:id' do  #loads show page
-    @record = record.find_by_id(params[:id])
+    @record = Record.find_by_id(params[:id])
     erb :'/records/show'
   end
 
   get '/records/:id/edit' do #loads edit form
-    @record = record.find_by_id(params[:id])
+    @record = Record.find_by_id(params[:id])
     erb :'/records/edit'
   end
 
   patch '/records/:id' do  #updates a record
-    @record = record.find_by_id(params[:id])
+    @record = Record.find_by_id(params[:id])
     @record.artist = params[:artist]
     @record.title = params[:title]
     @record.label = params[:label]
@@ -36,12 +36,12 @@ class RecordsController < ApplicationController
   end
 
   post '/records' do  #creates a record
-    @record = record.create(params)
+    @record = Record.create(params)
     redirect to "/records/#{@record.id}"
   end
 
   delete '/records/:id/delete' do #delete action
-  @record = record.find_by_id(params[:id])
+  @record = Record.find_by_id(params[:id])
   @record.delete
   redirect to '/records'
 end
